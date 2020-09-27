@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded',() => {
 function getTrips() {
   fetch(endPoint)
     .then(response => response.json())
-    .then(trips => {
+    .then(trips => 
         trips.data.forEach(trip => {
           const tripMarkup = `
             <div data-id=${trip.id}>
@@ -24,7 +24,7 @@ function getTrips() {
   
             document.querySelector('#trip-container').innerHTML += tripMarkup
         })
-      })
+      )
 }
 
 function createFormHandler(e) {
