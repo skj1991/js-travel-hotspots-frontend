@@ -12,43 +12,38 @@ function getTrips() {
     .then(response => response.json())
     .then(trips => 
         trips.data.forEach(trip => {
-          const tripMarkup = `
-            <div data-id=${trip.id}>
-              <img src=${trip.attributes.image_url} height="200" width="250">
-              <h2>${trip.attributes.title}</h2>
-              <h3>City: ${trip.attributes.city}</h3>
-              <h4>Country: ${trip.attributes.country.name}</h4>
-              <p>Hotel: ${trip.attributes.hotel}</p>
-              <p>Must Visit: ${trip.attributes.must_visit}</p>
-              <p>Top Restaurant: ${trip.attributes.top_restaurant}</p>
-              <p>About My Trip: ${trip.attributes.description}</p>
-              <p>Rating: ${trip.attributes.rating}</p>
-              <button data-id=${trip.id}>edit</button>
-            </div>
-            <br><br>`;
+          //debugger
+          let newTrip = new Trip(trip, trip.attributes)
+
+         document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard();
   
-            document.querySelector('#trip-container').innerHTML += tripMarkup
         })
       )
 }
 
+
 function createFormHandler(e) {
     e.preventDefault()
     const titleInput = document.querySelector("#input-title").value
+    const cityInput = document.querySelector("#input-city").value
     const descriptionInput = document.querySelector("#input-description").value
+    const ratingInput = document.querySelector("#input-rating").value
+    const hotelInput = document.querySelector("#input-hotel").value
+    const mustVisitInput = document.querySelector("#input-visit").value
+    const restaurantInput = document.querySelector("#input-restaurant").value
     const imageInput = document.querySelector("#input-url").value
     const countryId = parseInt(document.querySelector("#countries").value)
-    postFetch(titleInput, descriptionInput, imageInput, countryId)
+    postFetch(titleInput, cityInput, descriptionInput, ratingInput, hotelInput, mustVisitInput, restaurantInput, imageInput, countryId)
 }
 
-function postFetch(title, description, image_url, country_id){
-    let tripBodyData = {title, description, image_url, country_id}
+function postFetch(title, city, description, rating, hotel, must_visit, top_restaurant, image_url, country_id){
+    let bodyData = {title, city, description, rating, hotel, must_visit, top_restaurant, image_url, country_id}
 
     fetch(endPoint, {
         //POST request
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(tripBodyData)
+        body: JSON.stringify(bodyData)
     })
     .then(response => response.json())
     .then(trip => {
