@@ -15,9 +15,14 @@ function getTrips() {
           const tripMarkup = `
             <div data-id=${trip.id}>
               <img src=${trip.attributes.image_url} height="200" width="250">
-              <h3>${trip.attributes.title}</h3>
-              <h3>${trip.attributes.city}</h3>
-              <p>${trip.attributes.country.name}</p>
+              <h2>${trip.attributes.title}</h2>
+              <h3>City: ${trip.attributes.city}</h3>
+              <h4>Country: ${trip.attributes.country.name}</h4>
+              <p>Hotel: ${trip.attributes.hotel}</p>
+              <p>Must Visit: ${trip.attributes.must_visit}</p>
+              <p>Top Restaurant: ${trip.attributes.top_restaurant}</p>
+              <p>About My Trip: ${trip.attributes.description}</p>
+              <p>Rating: ${trip.attributes.rating}</p>
               <button data-id=${trip.id}>edit</button>
             </div>
             <br><br>`;
@@ -52,9 +57,14 @@ function postFetch(title, description, image_url, country_id){
         const tripMarkup = `
         <div data-id=${trip.id}>
               <img src=${tripData.image_url} height="200" width="250">
-              <h3>${tripData.title}</h3>
+              <h2>${tripData.title}</h2>
               <h3>${tripData.city}</h3>
-              <p>${tripData.country.name}</p>
+              <h4>${tripData.country.name}</h4>
+              <p>${tripData.hotel}</p>
+              <p>${tripData.must_visit}</p>
+              <p>${tripData.top_restaurant}</p>
+              <p>${tripData.description}</p>
+              <p>${tripData.rating}</p>
               <button data-id=${trip.id}>edit</button>
         </div>
         <br><br>`;
