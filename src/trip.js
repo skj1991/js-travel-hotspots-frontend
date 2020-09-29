@@ -17,17 +17,17 @@ class Trip {
 
     renderTripCard(){
      return `
-      <div class="col-md-4">
+      <div class="col-10">
         <div class="card mb-4 shadow-sm">
           <img src=${this.image_url} class="card-img-top" alt="...">
           <div class="card-body">
             <h4 class="card-title">${this.title}</h4>
-            <h5 class="card-text">${this.city}</h5>
+            <h5 class="card-text">Destination: ${this.city}</h5>
             <p class="card-text">${this.description}</p>
-            <p class="card-text">${this.rating}</p>
-            <p class="card-text">${this.hotel}</p>
-            <p class="card-text">${this.must_visit}</p>
-            <p class="card-text">${this.top_restaurant}</p>
+            <p class="card-text">Trip Rating: ${this.rating}</p>
+            <p class="card-text">Hotel: ${this.hotel}</p>
+            <p class="card-text">Must Visit Attraction: ${this.must_visit}</p>
+            <p class="card-text">Top Restaurant: ${this.top_restaurant}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
