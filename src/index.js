@@ -46,7 +46,7 @@ function postFetch(title, city, description, rating, hotel, must_visit, top_rest
     .then(response => response.json())
     .then(trip => {
         console.log(trip);
-        const newTrip = new Trip(trip, trip.attributes)//consult about error. see screenshot
+        const newTrip = new Trip(trip, trip.attributes) //consult about error. see screenshot
         document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard()
         
     })
