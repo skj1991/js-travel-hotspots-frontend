@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- JS Project Tags -->
+    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/trip.js"></script>
+
+    <!-- Bootstrap-4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="form-container">
+
+        <form id="create-trip-form">
+          <h3>Create a new Trip!</h3>
+      
+          <input id='input-title' type="text" name="title" value="" placeholder="Enter your trip title..." class="input-text">
+          <br><br>
+          <input id='input-city' type="text" name="city" value="" placeholder="Enter City name..." class="input-text">
+          <br><br>
+          <textarea id='input-description' name="description" rows="8" cols="80" value="" placeholder="Enter your travel description..."></textarea>
+          <br><br>
+          <input id='input-rating' type="text" name="rating" value="" placeholder="Trip rating: 1 - 10..." class="input-integer">
+          <br><br>
+          <input id='input-hotel' type="text" name="hotel" value="" placeholder="Enter your hotel..." class="input-text">
+          <br><br>
+          <input id='input-visit' type="text" name="must_visit" value="" placeholder="Recommended attraction/thing to do..." class="input-text">
+          <br><br>
+          <input id='input-restaurant' type="text" name="top_restaurant" value="" placeholder="My favorite restaurant..." class="input-text">
+          <br><br>
+          <input id='input-url' type="text" name="image_url" value="" placeholder="Enter your image URL..." class="input-text">
+          <br><br>
+          
+          <p>Choose a Country:</p>
+          <select id="countries" name="countries">
+            <option value="1">France</option>
+            <option value="2">United States</option>
+            <option value="3">Austrailia</option>
+            <option value="4">Greece</option>
+            <option value="5">Mexico</option>
+            <option value="6">Spain</option>
+            <option value="7">Italy</option>
+            <option value="8">Thailand</option>
+            <option value="9">Indonesia</option>
+          </select>
+          <br><br>
+      
+          <input id= 'create-button' type="submit" name="submit" value="Create New Trip" class="submit">
+
+        </form>
+        <br><br>
+      
+      </div>
+    <div id="trip-container">
+
+    </div>
+
+</body>
+</html>

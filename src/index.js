@@ -13,12 +13,10 @@ function getTrips() {
     .then(trips => 
         trips.data.forEach(trip => {
           //debugger
-          let newTrip = new Trip(trip, trip.attributes)
-
+         const newTrip = new Trip(trip, trip.attributes)
          document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard();
-  
         })
-      )
+    )
 }
 
 
@@ -48,22 +46,8 @@ function postFetch(title, city, description, rating, hotel, must_visit, top_rest
     .then(response => response.json())
     .then(trip => {
         console.log(trip);
-        const tripData = trip.data
-        const tripMarkup = `
-        <div data-id=${trip.id}>
-              <img src=${tripData.image_url} height="200" width="250">
-              <h2>${tripData.title}</h2>
-              <h3>${tripData.city}</h3>
-              <h4>${tripData.country.name}</h4>
-              <p>${tripData.hotel}</p>
-              <p>${tripData.must_visit}</p>
-              <p>${tripData.top_restaurant}</p>
-              <p>${tripData.description}</p>
-              <p>${tripData.rating}</p>
-              <button data-id=${trip.id}>edit</button>
-        </div>
-        <br><br>`;
-
-        document.querySelector('#trip-container').innerHTML += tripMarkup
+        const newTrip = new Trip(trip, trip.attributes)//consult about error. see screenshot
+        document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard()
+        
     })
 }
