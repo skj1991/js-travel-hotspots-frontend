@@ -2,19 +2,44 @@ const endPoint = "http://localhost:3000/api/v1/trips";
 
 document.addEventListener('DOMContentLoaded',() => {
   getTrips()  
+  getCountries()
 
   const createTripForm = document.querySelector('#create-trip-form')
-  createTripForm.addEventListener('submit', (e) => createFormHandler(e))
+  createTripForm.addEventListener('submit', (e) => {
+      createFormHandler(e);
+      reset()
+    })
+
+  const tripContainer = document.querySelector("#trip-container")
+  tripContainer.addEventListener('click', e => {
+      const id = parseInt(e.target.dataset.id); 
+      const t = Trip.findById(id); 
+      document.querySelector('#update-trip').innerHTML = t.renderUpdateForm();
+  })
 })
 
+function reset() {
+    let form = document.getElementById("create-trip-form");
+    form.reset()
+}
+            
 function getTrips() {
   fetch(endPoint)
     .then(response => response.json())
     .then(trips => 
         trips.data.forEach(trip => {
-          //debugger
          const newTrip = new Trip(trip, trip.attributes)
          document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard();
+        })
+    )
+}
+
+function getCountries(){
+    fetch("http://localhost:3000/api/v1/countries")
+    .then(response => response.json())
+    .then(countries =>
+        countries.data.forEach(country => {
+            const newCountry = new Country(country, country.attributes)
         })
     )
 }
@@ -36,7 +61,8 @@ function createFormHandler(e) {
 
 function postFetch(title, city, description, rating, hotel, must_visit, top_restaurant, image_url, country_id){
     let bodyData = {title, city, description, rating, hotel, must_visit, top_restaurant, image_url, country_id}
-
+    let foundCountry = Country.findCountryById(country_id.toString())
+    let createdTrip = {title, city, description, rating, hotel, must_visit, top_restaurant, image_url,country: foundCountry}
     fetch(endPoint, {
         //POST request
         method: "POST",
@@ -46,7 +72,7 @@ function postFetch(title, city, description, rating, hotel, must_visit, top_rest
     .then(response => response.json())
     .then(trip => {
         console.log(trip);
-        const newTrip = new Trip(trip, trip.attributes) //consult about error. see screenshot
+        const newTrip = new Trip(trip, createdTrip) 
         document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard()
         
     })
