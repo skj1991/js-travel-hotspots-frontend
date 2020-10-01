@@ -16,6 +16,7 @@
     <!-- JS Project Tags -->
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/trip.js"></script>
+    <script type="text/javascript" src="src/country.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -51,7 +52,7 @@
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
           <h4 class="text-white">About</h4>
-          <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
+          <p class="text-muted">Trave Hotspots lets you rate your own trip and view ratings of other trips to get an idea of your next travel destinination. The app is desgined for those that consider themselves a travel connoisseur and like to let other in the the cool places they have visited.</p>
         </div>
         <div class="col-sm-4 offset-md-1 py-4">
           <h4 class="text-white">Contact</h4>
@@ -116,6 +117,7 @@
                 <label for="input-url">Image URL</label>
                 <input type="image_url" class="form-control" id="input-url">
             </div>
+            <!-- option to create new Country?-->
             <div class="form-group">
                 <label for="countries">Select Country</label>
                 <select class="form-control" id="countries">
@@ -141,11 +143,17 @@
     <div class="container" id="trip-container">
 
       <div class="row">
-        <!-- Moveed the HTML code for card to trip.js function renderTripCard() -->
+        <!-- Moved the HTML code for card to trip.js function renderTripCard() -->
         <!-- Deleted extra cards to intiatiate. -->
       </div><!-- Row ENDS HERE (DONT DELETE!)-->
     </div>
   </div>
+
+  <div id="update-trip">
+
+  </div>
+
+
 
 </main>
 

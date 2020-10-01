@@ -1,8 +1,7 @@
 class Trip {
     constructor(trip, tripAttributes){
-        //debugger
         this.id = trip.id
-        this.title = tripAttributes.title //consult about error. see screenshot
+        this.title = tripAttributes.title 
         this.city = tripAttributes.city
         this.country = tripAttributes.country
         this.description = tripAttributes.description
@@ -23,7 +22,7 @@ class Trip {
           <div class="card-body">
             <h4 class="card-title">${this.title}</h4>
             <h5 class="card-text">Destination: ${this.city}</h5>
-            <p class="card-text">${this.description}</p>
+            <p class="card-text">Travel Details: ${this.description}</p>
             <p class="card-text">Trip Rating: ${this.rating}</p>
             <p class="card-text">Hotel: ${this.hotel}</p>
             <p class="card-text">Must Visit Attraction: ${this.must_visit}</p>
@@ -39,6 +38,6 @@ class Trip {
         </div>
       </div>`
 
-    }
+    } 
 }
 Trip.all = [];
