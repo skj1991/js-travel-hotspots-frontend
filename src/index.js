@@ -26,12 +26,24 @@ function reset() {
 function getTrips() {
   fetch(endPoint)
     .then(response => response.json())
-    .then(trips => 
-        trips.data.forEach(trip => {
+    .then(trips => {
+        const t = trips.data.sort(function(a, b) {
+            let titleA = a.attributes.title.toUpperCase();
+            let titleB = b.attributes.title.toUpperCase();
+            if(titleA < titleB){
+                return -1
+            }
+            if(titleA > titleB){
+                return 1
+            }
+            return 0;
+        })
+        //debugger
+        t.forEach(trip => {
          const newTrip = new Trip(trip, trip.attributes)
          document.querySelector('#trip-container').innerHTML += newTrip.renderTripCard();
         })
-    )
+    })
 }
 
 function getCountries(){
